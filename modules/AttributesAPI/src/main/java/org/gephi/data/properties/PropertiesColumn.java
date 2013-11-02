@@ -59,6 +59,7 @@ public enum PropertiesColumn {
 
     NODE_ID(0, "id", AttributeType.STRING, AttributeOrigin.PROPERTY, null),
     NODE_LABEL(1, "label", AttributeType.STRING, AttributeOrigin.PROPERTY, null),
+    NODE_SHAPE(2, "shape", AttributeType.STRING, AttributeOrigin.PROPERTY, "circle"),
     EDGE_ID(0, "id", AttributeType.STRING, AttributeOrigin.PROPERTY, null),
     EDGE_LABEL(1, "label", AttributeType.STRING, AttributeOrigin.PROPERTY, null),
     EDGE_WEIGHT(2, "weight", AttributeType.FLOAT, AttributeOrigin.PROPERTY, 1f),

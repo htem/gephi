@@ -80,12 +80,24 @@ public interface NodeData extends Renderable, Attributable {
      * @return              the node lable, or <code>null</code>
      */
     public String getLabel();
+    
+    /**
+     * Returns the node shape, or <code>null</code> if none has been set.
+     * @return              the node shape, or <code>null</code>
+     */
+    public String getShape();
 
     /**
      * Sets this node label.
      * @param label         the label that is to be set as this node label
      */
     public void setLabel(String label);
+
+     /**
+     * Sets this node shape.
+     * @param shape         the shape that is to be set as this node shape
+     */
+    public void setShape(String shape);
 
     /**
      * Returns the string identifier of this node. This identifier can be set

@@ -87,6 +87,7 @@ public class NodeRenderer implements Renderer {
         Float y = item.getData(NodeItem.Y);
         Float size = item.getData(NodeItem.SIZE);
         Color color = item.getData(NodeItem.COLOR);
+        String shape = item.getData(NodeItem.SHAPE);
         Color borderColor = ((DependantColor) properties.getValue(PreviewProperty.NODE_BORDER_COLOR)).getColor(color);
         float borderSize = properties.getFloatValue(PreviewProperty.NODE_BORDER_WIDTH);
         int alpha = (int) ((properties.getFloatValue(PreviewProperty.NODE_OPACITY) / 100f) * 255f);
@@ -106,7 +107,16 @@ public class NodeRenderer implements Renderer {
             graphics.noStroke();
         }
         graphics.fill(color.getRed(), color.getGreen(), color.getBlue(), alpha);
-        graphics.ellipse(x, y, size, size);
+        if (shape.equals("circle") || shape.equals("0")) {
+            graphics.ellipse(x, y, size, size);
+        } else if (shape.equals("triangle") || shape.equals("1")) {
+            graphics.triangle(x, y-size/2, x+size*(float)0.433013, y+size*(float)0.249999, x-size*(float)0.433013, y+size*(float)0.249999);
+        } else if (shape.equals("quad") || shape.equals("2")) {
+            graphics.quad(x, y-size/2, x+size/2, y, x, y+size/2, x-size/2, y);
+        } else {
+            graphics.rectMode(graphics.CENTER);
+            graphics.rect(x, y, size, size);
+        }
     }
 
     public void renderSVG(Item item, SVGTarget target, PreviewProperties properties) {

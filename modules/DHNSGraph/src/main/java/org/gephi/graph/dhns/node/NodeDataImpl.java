@@ -74,6 +74,7 @@ public class NodeDataImpl implements NodeData, GroupData {
     protected Model model;
     protected boolean fixed;
     protected String label;
+    protected String shape;
     protected Attributes attributes;
     protected TextData textData;
     protected Model hullModel;
@@ -210,6 +211,14 @@ public class NodeDataImpl implements NodeData, GroupData {
             this.label = label;
         }
     }
+    
+    public void setShape(String shape) {
+        if (attributes != null) {
+            attributes.setValue(PropertiesColumn.NODE_SHAPE.getIndex(), shape);
+        } else {
+            this.shape = shape;
+        }
+    }
 
     public float alpha() {
         return alpha;
@@ -232,6 +241,14 @@ public class NodeDataImpl implements NodeData, GroupData {
             return (String) attributes.getValue(PropertiesColumn.NODE_LABEL.getIndex());
         } else {
             return label;
+        }
+    }
+    
+    public String getShape() {
+        if (attributes != null) {
+            return (String) attributes.getValue(PropertiesColumn.NODE_SHAPE.getIndex());
+        } else {
+            return shape;
         }
     }
 

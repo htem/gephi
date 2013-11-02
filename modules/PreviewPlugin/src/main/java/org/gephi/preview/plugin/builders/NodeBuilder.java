@@ -71,6 +71,7 @@ public class NodeBuilder implements ItemBuilder {
                     (int) (n.getNodeData().g() * 255),
                     (int) (n.getNodeData().b() * 255),
                     (int) (n.getNodeData().alpha() * 255)));
+            nodeItem.setData(NodeItem.SHAPE, n.getNodeData().getShape());
             items[i++] = nodeItem;
         }
         return items;
